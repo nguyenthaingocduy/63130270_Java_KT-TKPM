@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class NhanVienF88
+class ChuTich
+class NhanVien
+NhanVienF88 <|-- ChuTich
+NhanVienF88 <|-- NhanVien
+NhanVien ---> NhanVienF88: capTren
+NhanVienF88 "*"--->Main
+
+abstract class NhanVienF88{
+    String ten
+    String chucVu
+    int hanMucXuLyVay
+    + {abstract} NhanVienF88 capCaoHon(NhanVienF88 nv)
+    + String xuLyKhoanVay(int tienVay)
+}
+class NhanVien{
+    + String xuLyKhoanVay(int tienVay)
+}
+note right of NhanVien::xuLyKhoanVay
+    - Kiểm tra nếu tienVay <= hanMucXuLyVay:
+        trả về: Chức vụ, tên xử lý khoản hanMucXuLyVay
+            (VD: Bảo vệ Hiếu xử lý khoản vay 500000)
+    Ngược lại: Chuyển công việc xử lý vay cho cấp trên
+end note
+note right of NhanVienF88::capCaoHon
+    gan Nhan vien cho bien cap tren
+    tra ve capTren
+    Chu y: khong cai dat doi voi lop chu tich
+end note
+note left of Main
++ Trong phuong thuc main thuc hien: tao cac doi tuong thuoc lop nhan vien f88.
++ Tao mot doi tuong Nhan vien f88 nhung thuoc lop chu tich.
++ Ket noi chuoi cac doi tuong.
++ Goi phuong thuc xu ly khoan vay tren doi tuong dau tien cua chuoi.
+end note
+@enduml
