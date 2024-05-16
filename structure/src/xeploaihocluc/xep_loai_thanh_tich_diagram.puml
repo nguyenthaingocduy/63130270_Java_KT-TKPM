@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+abstract class HocLuc {
+float diem;
+String tenLoaiHocLuc;
+
++ {abstract} KiemTraHocLuc(float diem):String
++ {abstract}HocLuc HocLucCaoHon (HocLuc hl)
+
+}
+HocLuc <|--- HocLucThongThuong
+
+HocLuc <|--- HocLucThapNhat
+HocLucThongThuong ---> HocLuc:HocLucCaoHon
+
+@enduml

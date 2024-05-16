@@ -5,7 +5,9 @@ import java.util.List;
 
 public class KeHoachChung extends KeHoachHocTap{
     List<KeHoachHocTap> list = new ArrayList<>();
-    public KeHoachChung(String ten) {
+
+
+        public KeHoachChung(String ten) {
         super(ten);
     }
 

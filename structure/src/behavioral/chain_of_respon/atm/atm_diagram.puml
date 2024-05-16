@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+abstract class ATM_TheoMenhGia{
+    int menhGia;
+    +{abstract} ATM_TheoMenhGia menhGiaKeTiep(ATM_TheoMenhGia m)
+    +{abstract} void rutTien(int soTien);
+
+}
+abstract ChuoiMenhGiaFactory{
+#{abstract}ATM_TheoMenhGia getChuoiMenhGia(int MenhGia)
++ void rutTien(int (int soTien, int menhGiaCaoNhat)
+}
+
+
+
+ATM_TheoMenhGia <|-- MenhGia
+ATM_TheoMenhGia <|-- MenhGiaThapNhat
+MenhGia --> ATM_TheoMenhGia:keTiep
+
+ATM_TheoMenhGia <... ChuoiMenhGiaFactory
+ATM_TheoMenhGia <---* ChuoiMenhGiaVND
+ChuoiMenhGiaFactory <|--- ChuoiMenhGiaVND
+
+
+note top of ChuoiMenhGiaFactory
+    + Phuong thuc rutTien:
+     - Goi phuong thuc getChuoiMenhGia --> chuoiMenhGia
+     - Goi phuong thuc rutTien tren doi tuong chuoiMenhGia
+end note
+
+
+note bottom of ChuoiMenhGiaVND
+    + Tao cac doi tuong ATM_TheoMenhGia them menh gia tien Viet Nam
+    + Ket noi cac doi tuong nay thanh chuoi trong phuong thuc khoi tao
+    + Phuong thuc getChuoiMengGia tra ve doi tuong kieu ATM_TheoMenhGia trong chuoi ung gia tri dau vao
+
+
+end note
+@enduml

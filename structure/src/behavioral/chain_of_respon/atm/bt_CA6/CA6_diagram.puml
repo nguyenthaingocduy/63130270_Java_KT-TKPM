@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/class-diagram
+class PlayerData{
+    int thoiGian;
+    int soLuotChoi, Diem;
+    + void setThoiGian(int tg)
+    + void setSoLuotChoi(int n)
+    + void setDiem(int diem)
+}
+
+class DashBoard{
+
+}
+interface PlayerDataListener{
+    listen(PlayerData data)
+
+}
+
+
+DashBoard ..|> PlayerDataListener
+DashBoard --> PlayerData: playerData
+PlayerData --> PlayerDataListener: listener
+
+@enduml

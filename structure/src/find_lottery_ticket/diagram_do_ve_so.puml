@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+abstract class GiaiThuong{
+    String tenGiai
+    List<String> soTrungThuong;
++ {abstract} GiaiThuong giai KeTiep (GiaiThuong keTiep)
++ {abstract} void DoVeSo (String veSo)
+}
+GiaiThuong <|-- GiaiUt
+GiaiThuong <|-- GiaiThongThuong
+GiaiThongThuong --> GiaiThuong : keTiep
+GiaiThuong <-- GiaiKhuyenKhich:GiaiThuong
+note bottom of GiaiUt
+ Phuong thuc DoVeSo(String veSo)
+    Duyet qua cac chuoi s trong soTrungThuongs:
+        neu veSo ket thuc bang chuoi s:
+            in thong bao trung giai
+            return
+            in lucky soon
+end note
+
+
+note bottom of GiaiThongThuong
+ Phuong thuc DoVeSo(String veSo)
+    Duyet qua cac chuoi s trong soTrungThuongs:
+        neu veSo ket thuc bang chuoi s:
+            in thong bao trung giai
+            return
+    Chuyen ve so cho giai ke tiep do
+end note
+note left of GiaiKhuyenKhich
+
+Dat ngay sau giai DacBiet
+Neu trung giai khuyen khich van tiep tuc do so
+
+end note
+
+
+
+@enduml
